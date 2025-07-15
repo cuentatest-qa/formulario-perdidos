@@ -9,13 +9,21 @@
       font-family: sans-serif;
       padding: 20px;
       background: #fef8ec;
+      margin: 0;
     }
-    #mensaje {
-      background-color: #fff;
+    #contenedor {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #cabecera {
+      background-color: #ffffff;
+      border-left: 5px solid #d97706;
       padding: 20px;
-      border-left: 4px solid #d97706;
       margin-bottom: 20px;
-      font-size: 18px;
+    }
+    #cabecera h1 {
+      font-size: 24px;
+      margin: 0 0 10px 0;
     }
     iframe {
       width: 100%;
@@ -25,24 +33,23 @@
   </style>
 </head>
 <body>
-
-  <div id="mensaje">
-    <h2>¡Empieza a probar las nuevas funciones!</h2>
-    <p>Completa este formulario y un asesor se pondrá en contacto contigo para ayudarte a reactivar tu cuenta con nosotros.</p>
+  <div id="contenedor">
+    <div id="cabecera">
+      <h1>¡Empieza a probar las nuevas funciones!</h1>
+      <p>Completa este formulario y un asesor se pondrá en contacto contigo para ayudarte a reactivar tu cuenta con nosotros.</p>
+    </div>
+    <iframe id="formulario" src="" loading="lazy">Cargando…</iframe>
   </div>
-
-  <iframe id="formulario" src="" loading="lazy">Cargando…</iframe>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const tipoLead = params.get('tipo_lead') || 'Excliente';
 
-    const entryTipoLead = 'entry.1234567890'; // Reemplazar con el ID real si es necesario
+    const entryTipoLead = 'entry.1234567890'; // Reemplazar si tenés el ID real del campo oculto
     const formBase = 'https://docs.google.com/forms/d/e/1FAIpQLScfoEZ6QZAHv_I1ZwX8jKapIsQtS9SLRWVMjGAtn0_piVzHOQ/viewform?embedded=true';
     const finalURL = `${formBase}&${entryTipoLead}=${encodeURIComponent(tipoLead)}`;
 
     document.getElementById('formulario').src = finalURL;
   </script>
-
 </body>
 </html>
