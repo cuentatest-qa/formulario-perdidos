@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Empieza a probar las nuevas funcionalidades!</title>
+  <title>¡Empieza a probar las nuevas funciones!</title>
   <style>
     body {
       font-family: sans-serif;
@@ -19,14 +19,17 @@
     }
     iframe {
       width: 100%;
-      height: 1200px;
+      height: 1600px;
       border: none;
     }
   </style>
 </head>
 <body>
 
-  <div id="mensaje">Cargando mensaje…</div>
+  <div id="mensaje">
+    <h2>¡Empieza a probar las nuevas funciones!</h2>
+    <p>Completa este formulario y un asesor se pondrá en contacto contigo para ayudarte a reactivar tu cuenta con nosotros.</p>
+  </div>
 
   <iframe id="formulario" src="" loading="lazy">Cargando…</iframe>
 
@@ -34,14 +37,7 @@
     const params = new URLSearchParams(window.location.search);
     const tipoLead = params.get('tipo_lead') || 'Excliente';
 
-    const mensaje = document.getElementById('mensaje');
-    if (tipoLead.toLowerCase().includes('perdido')) {
-      mensaje.innerHTML = "<h2>¡Empieza a probar las nuevas funcionalidades!</h2><p>Completa este formulario y un asesor se pondrá en contacto contigo para habilitarte una prueba gratuita y ofrecerte condiciones exclusivas.</p>";
-    } else {
-      mensaje.innerHTML = "<p>Completa este formulario y un asesor se pondrá en contacto contigo para ayudarte a reactivar tu cuenta con nosotros.</p>";
-    }
-
-    const entryTipoLead = 'entry.1234567890';
+    const entryTipoLead = 'entry.1234567890'; // Reemplazar con el ID real si es necesario
     const formBase = 'https://docs.google.com/forms/d/e/1FAIpQLScfoEZ6QZAHv_I1ZwX8jKapIsQtS9SLRWVMjGAtn0_piVzHOQ/viewform?embedded=true';
     const finalURL = `${formBase}&${entryTipoLead}=${encodeURIComponent(tipoLead)}`;
 
